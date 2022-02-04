@@ -51,7 +51,7 @@ if [ ${INPLACE} == 'true' ]; then
   echo "Updating in-place with checked out repository"
   TEMPDIR=$(mktemp -d)
   cp -R ${DIST} ${TEMPDIR}
-  DIST=${TEMPDIR}/dist/icons/
+  DIST=${TEMPDIR}/
   pushd .
 else
   echo "Cloning icon repository"
