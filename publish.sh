@@ -52,7 +52,7 @@ if [ ${INPLACE} == 'true' ]; then
   TEMPDIR=$(mktemp -d)
   cp -R ${DIST} ${TEMPDIR}/
   echo ${TEMPDIR}
-  DIST=${TEMPDIR}/
+  DIST=${TEMPDIR}/icons/
   pushd .
 else
   echo "Cloning icon repository"
@@ -64,7 +64,8 @@ fi
 
 # Update the dist branch - this is the latest build of the icon font
 git checkout -B dist
-rsync -av --delete ${DIST} .
+rm -rf *
+rsync -av ${DIST} .
 git add -A
 git commit -m "Rancher Icons updated for version ${VERSION}, commit ${COMMIT}"
 git push origin dist --force
